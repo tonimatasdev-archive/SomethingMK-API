@@ -1,9 +1,6 @@
 package dev.tonimatas.discordmk.blocks.types;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import dev.tonimatas.discordmk.Action;
-import dev.tonimatas.discordmk.DiscordMK;
 import dev.tonimatas.discordmk.value.Value;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
@@ -26,10 +23,5 @@ public class SendMessage extends AbstractBlock {
         
         textChannel.sendMessage(message).queue();
         return null;
-    }
-
-    @Override
-    public JsonElement toJson() {
-        return DiscordMK.gson.toJsonTree(this);
     }
 }
