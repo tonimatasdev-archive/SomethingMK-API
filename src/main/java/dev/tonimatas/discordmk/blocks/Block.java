@@ -1,7 +1,5 @@
 package dev.tonimatas.discordmk.blocks;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import dev.tonimatas.discordmk.Action;
 import dev.tonimatas.discordmk.value.Value;
 
@@ -14,6 +12,4 @@ public interface Block {
     Action getAction();
 
     Map<String, Value> run(Map<String, Value> values);
-
-    JsonElement toJson();
 }
