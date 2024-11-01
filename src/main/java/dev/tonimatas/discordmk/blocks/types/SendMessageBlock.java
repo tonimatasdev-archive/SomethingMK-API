@@ -6,11 +6,11 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
 import java.util.Map;
 
-public class SendMessage extends AbstractBlock {
+public class SendMessageBlock extends AbstractBlock {
     public String channelValueId;
     public String messageValueId;
     
-    public SendMessage(Action action, String channelValueId, String messageValueId) {
+    public SendMessageBlock(Action action, String channelValueId, String messageValueId) {
         super(action);
         this.channelValueId = channelValueId;
         this.messageValueId = messageValueId;
@@ -22,6 +22,6 @@ public class SendMessage extends AbstractBlock {
         String message = values.get(messageValueId).getString();
         
         textChannel.sendMessage(message).queue();
-        return null;
+        return values;
     }
 }
