@@ -1,13 +1,11 @@
 package dev.tonimatas.discordmk.value;
 
 import dev.tonimatas.discordmk.Action;
+import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Slf4j
 public record Value(ValueType type, Object value) {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Value.class);
-    
     public Action getAction() {
         return (Action) getOrNull(ValueType.ACTION);
     }
@@ -22,7 +20,7 @@ public record Value(ValueType type, Object value) {
     
     private Object getOrNull(ValueType type) {
         if (this.type != type) {
-            LOGGER.error("Invalid value type: {}", this.type);
+            log.error("Invalid value type: {}", this.type);
             return null;
         }
         
