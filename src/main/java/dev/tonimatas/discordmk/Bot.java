@@ -4,6 +4,7 @@ import dev.tonimatas.discordmk.workspaces.IWorkspace;
 import dev.tonimatas.discordmk.workspaces.WorkspaceType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.events.Event;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -30,10 +31,10 @@ public class Bot {
         this.jda = JDABuilder.create(token, Arrays.asList(GatewayIntent.values())).addEventListeners(getEvents()).build();
     }
     
-    public void runWorkspace(WorkspaceType type) {
+    public void runWorkspace(WorkspaceType type, Event event) {
         for (IWorkspace workspace : workspaces) {
             if (workspace.getType() == type) {
-                workspace.run();
+                workspace.run(event);
             }
         }
     }
@@ -43,7 +44,7 @@ public class Bot {
             @Override
             public void onMessageReceived(@NotNull MessageReceivedEvent event) {
                 if (!event.getAuthor().isBot()) {
-                    Bot.this.runWorkspace(WorkspaceType.MESSAGE_RECEIVED);
+                    Bot.this.runWorkspace(WorkspaceType.MESSAGE_RECEIVED, event);
                 }
             }
         };
