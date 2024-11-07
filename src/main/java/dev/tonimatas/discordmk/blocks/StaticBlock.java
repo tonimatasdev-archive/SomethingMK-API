@@ -1,7 +1,7 @@
 package dev.tonimatas.discordmk.blocks;
 
-import dev.tonimatas.discordmk.value.Value;
+import dev.tonimatas.discordmk.value.ValueType;
 
 public interface StaticBlock extends Block {
-    Value getValue();
+    ValueType output();
 }
