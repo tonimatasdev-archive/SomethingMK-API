@@ -1,6 +1,5 @@
 package dev.tonimatas.discordmk.blocks.normals;
 
-import dev.tonimatas.discordmk.Action;
 import dev.tonimatas.discordmk.blocks.BlockType;
 import dev.tonimatas.discordmk.value.ValueType;
 import dev.tonimatas.discordmk.workspaces.Workspace;
@@ -12,8 +11,8 @@ public class SendMessageBlock extends AbstractBlock {
     public String channelValueId;
     public String messageValueId;
     
-    public SendMessageBlock(Action action, String channelValueId, String messageValueId) {
-        super(action);
+    public SendMessageBlock(String actionTo, String channelValueId, String messageValueId) {
+        super(actionTo);
         this.channelValueId = channelValueId;
         this.messageValueId = messageValueId;
     }
