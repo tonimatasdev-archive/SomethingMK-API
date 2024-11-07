@@ -1,6 +1,5 @@
 package dev.tonimatas.discordmk.workspaces;
 
-import dev.tonimatas.discordmk.blocks.Block;
 import dev.tonimatas.discordmk.blocks.NormalBlock;
 import dev.tonimatas.discordmk.blocks.StaticBlock;
 import dev.tonimatas.discordmk.value.Value;
@@ -28,7 +27,6 @@ public abstract class Workspace implements IWorkspace {
         return name;
     }
 
-    @Override
     public void run() {
         for (StaticBlock staticBlock : staticBlocks) {
             try {
